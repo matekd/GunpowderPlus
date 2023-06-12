@@ -19,12 +19,8 @@ local function onhit(inst, attacker, target)
 
         inst.SoundEmitter:KillSound("hiss")
         inst.SoundEmitter:PlaySound("dontstarve/bee/beemine_explo")
-
-        -- Spawn bee
-        --local bee = SpawnPrefab("bee")
-        --local pos = inst:GetPosition() -- position where greande landed
-        --bee.Transform:SetPosition(pos.x, pos.y, pos.z)
-
+        
+        -- Spawn bee(s)
         if target and target:IsValid() then
             for i = 1, TUNING.BEEMINE_BEES do -- 4
                 local bee = SpawnPrefab("bee")
@@ -41,9 +37,9 @@ local function onhit(inst, attacker, target)
             end
             target:PushEvent("coveredinbees")
         end
+        inst:Remove()
     end)
     --inst:ListenForEvent("animover", inst.Remove)
-    inst:Remove()
 end
 
 local function OnEquip(inst, owner)

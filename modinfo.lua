@@ -13,5 +13,5 @@ reign_of_giants_compatible = false  -- to be tested
 shipwrecked_compatible = false      -- to be tested
 hamlet_compatible = false           -- to be tested
 
-icon_atlas = "" -- to be added
-icon = ""       -- to be added
+--icon_atlas = "" -- to be added
+--icon = ""       -- to be added

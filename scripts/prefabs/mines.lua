@@ -5,7 +5,7 @@ local assets = {
 }
 
 local prefabs = {
-    --"explode_small"
+    "explode_small"
 }
 
 local function OnExplode(inst)
@@ -14,7 +14,16 @@ local function OnExplode(inst)
 	--inst.persists = false
 	--inst:ListenForEvent("animover", inst.Remove)
 	--inst:ListenForEvent("entitysleep", inst.Remove)
-	inst:Remove() -- test
+
+	inst:DoTaskInTime(1, function()
+		-- Explosion effect
+		local explode = SpawnPrefab("explode_small")
+		local pos = inst:GetPosition() 
+		explode.Transform:SetPosition(pos.x, pos.y, pos.z)
+
+		print("Boom")
+		inst:Remove()
+	end)
 end
 
 --[[local function onhammered(inst, worker)
@@ -51,11 +60,13 @@ local function OnDropped(inst)
 	if inst.components.mine then
 		inst.components.mine:Deactivate()
 	end
+	print("Dropped")
 end
 
 local function ondeploy(inst, pt, deployer)
 	inst.components.mine:Reset()
 	inst.Physics:Teleport(pt:Get())
+	--StartRattling(inst)
 end
 
 local function fn()
@@ -92,7 +103,7 @@ local function fn()
 
 	inst:AddComponent("inventoryitem")
 	-- ?
-	--inst.components.inventoryitem.nobounce = true
+	inst.components.inventoryitem.nobounce = true
 	--inst.components.inventoryitem:SetOnPutInInventoryFn(StopRattling)
 	--inst.components.inventoryitem:SetOnDroppedFn(OnDropped)
 	inst.components.inventoryitem.imagename = "minemine"
@@ -104,6 +115,5 @@ local function fn()
 	return inst
 end
 
---return Prefab("common/inventory/minemine", fn, assets, prefabs), MakePlacer("common/minemine_placer", "minemine", "minemine", "idle")
-
-return Prefab("common/inventory/minemine", fn, assets, prefabs)
+return Prefab("common/inventory/minemine", fn, assets, prefabs), 
+	MakePlacer("common/minemine_placer", "minemine", "minemine", "idle")
