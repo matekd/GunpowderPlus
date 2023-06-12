@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spriter_data scml_version="1.0" generator="BrashMonkey Spriter" generator_version="b5">
+    <folder id="0">
+        <file id="0" name="grass.png" width="150" height="33" pivot_x="0.501016" pivot_y="0.237241"/>
+        <file id="1" name="ground_minemine.png" width="84" height="81" pivot_x="0.492157" pivot_y="0.176547"/>
+        <file id="2" name="minemine.png" width="90" height="90" pivot_x="0" pivot_y="1"/>
+    </folder>
+    <entity id="0" name="minemine">
+        <animation id="0" name="idle" length="1000">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" name="ground_minemine" folder="0" file="1" abs_x="0.011765" abs_y="-0.049579" abs_pivot_x="0.492157" abs_pivot_y="0.176547" abs_angle="0" abs_scale_x="1.5" abs_scale_y="1.5" abs_a="1" timeline="1" key="0" z_index="0"/>
+                    <object_ref id="1" name="grass" folder="0" file="0" abs_x="0" abs_y="-8.178439" abs_pivot_x="0.501016" abs_pivot_y="0.237241" abs_angle="0" abs_scale_x="1" abs_scale_y="1" abs_a="1" timeline="0" key="0" z_index="1"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="grass">
+                <key id="0" spin="0">
+                    <object folder="0" file="0" x="0" y="-8.178439" angle="0"/>
+                </key>
+            </timeline>
+            <timeline id="1" name="ground_minemine">
+                <key id="0" spin="0">
+                    <object folder="0" file="1" x="0.011765" y="-0.049579" angle="0" scale_x="1.5" scale_y="1.5"/>
+                </key>
+            </timeline>
+        </animation>
+        <animation id="1" name="explode" length="1000">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" name="ground_minemine" folder="0" file="1" abs_x="0.011765" abs_y="-0.049579" abs_pivot_x="0.492157" abs_pivot_y="0.176547" abs_angle="0" abs_scale_x="1.5" abs_scale_y="1.5" abs_a="1" timeline="1" key="0" z_index="0"/>
+                    <object_ref id="1" name="grass" folder="0" file="0" abs_x="0" abs_y="-8.178439" abs_pivot_x="0.501016" abs_pivot_y="0.237241" abs_angle="0" abs_scale_x="1" abs_scale_y="1" abs_a="1" timeline="0" key="0" z_index="1"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="grass">
+                <key id="0" spin="0">
+                    <object folder="0" file="0" x="0" y="-8.178439" angle="0"/>
+                </key>
+            </timeline>
+            <timeline id="1" name="ground_minemine">
+                <key id="0" spin="0">
+                    <object folder="0" file="1" x="0.011765" y="-0.049579" angle="0" scale_x="1.5" scale_y="1.5"/>
+                </key>
+            </timeline>
+        </animation>
+    </entity>
+</spriter_data>

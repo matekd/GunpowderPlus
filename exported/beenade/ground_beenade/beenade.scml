@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<spriter_data scml_version="1.0" generator="BrashMonkey Spriter" generator_version="b5">
+    <folder id="0">
+        <file id="0" name="beenade.png" width="53" height="76" pivot_x="0.452864" pivot_y="0.41956"/>
+    </folder>
+    <entity id="0" name="beenade">
+        <animation id="0" name="spin_loop" length="600">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" name="beenade_000" folder="0" file="0" abs_x="0" abs_y="0" abs_pivot_x="0.452864" abs_pivot_y="0.41956" abs_angle="0" abs_scale_x="1.5" abs_scale_y="1.5" abs_a="1" timeline="0" key="0" z_index="0"/>
+                </key>
+                <key id="1" time="106">
+                    <object_ref id="0" timeline="0" key="1" z_index="0"/>
+                </key>
+                <key id="2" time="200">
+                    <object_ref id="0" timeline="0" key="2" z_index="0"/>
+                </key>
+                <key id="3" time="400">
+                    <object_ref id="0" timeline="0" key="3" z_index="0"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="beenade_000">
+                <key id="0" spin="-1">
+                    <object folder="0" file="0" angle="0" scale_x="1.5" scale_y="1.5"/>
+                </key>
+                <key id="1" time="106" spin="-1">
+                    <object folder="0" file="0" angle="296.4" scale_x="1.5" scale_y="1.5"/>
+                </key>
+                <key id="2" time="200" spin="-1">
+                    <object folder="0" file="0" angle="240" scale_x="1.5" scale_y="1.5"/>
+                </key>
+                <key id="3" time="400" spin="-1">
+                    <object folder="0" file="0" angle="120" scale_x="1.5" scale_y="1.5"/>
+                </key>
+            </timeline>
+        </animation>
+        <animation id="1" name="idle" length="1000">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" name="beenade" folder="0" file="0" abs_x="0" abs_y="0" abs_pivot_x="0.452864" abs_pivot_y="0.41956" abs_angle="298.249735" abs_scale_x="1.5" abs_scale_y="1.5" abs_a="1" timeline="0" key="0" z_index="0"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="beenade">
+                <key id="0" spin="0">
+                    <object folder="0" file="0" angle="298.249735" scale_x="1.5" scale_y="1.5"/>
+                </key>
+            </timeline>
+        </animation>
+    </entity>
+</spriter_data>
