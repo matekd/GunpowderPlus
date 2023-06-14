@@ -9,51 +9,31 @@ local prefabs = {
 }
 
 local function OnExplode(inst)
-    --inst.AnimState:PlayAnimation("explode")
-    --inst.SoundEmitter:PlaySound("dontstarve/bee/beemine_launch")
-	--inst.persists = false
-	--inst:ListenForEvent("animover", inst.Remove)
-	--inst:ListenForEvent("entitysleep", inst.Remove)
+
+    inst.SoundEmitter:PlaySound("dontstarve/bee/beemine_launch")
 
 	inst:DoTaskInTime(1, function()
+
 		-- Explosion effect
+		inst.AnimState:PlayAnimation("explode") -- finish
+		inst.SoundEmitter:PlaySound("dontstarve/bee/beemine_explo")
+
+		inst.components.explosive:OnBurnt()
+
+		-- maybe include this as well
+		--[[ Explosion effect
 		local explode = SpawnPrefab("explode_small")
 		local pos = inst:GetPosition() 
-		explode.Transform:SetPosition(pos.x, pos.y, pos.z)
+		explode.Transform:SetPosition(pos.x, pos.y, pos.z)]]
 
-		print("Boom")
-		inst:Remove()
+		--inst:Remove()
 	end)
+	inst:ListenForEvent("animover", inst.Remove)
+	inst:ListenForEvent("entitysleep", inst.Remove)
 end
 
---[[local function onhammered(inst, worker)
-	if inst.components.mine then
-	    inst.components.mine:Explode(worker)
-	end
-end]]
-
---[[local function MineRattle(inst)
-    --inst.AnimState:PlayAnimation("hit")
-    inst.AnimState:PushAnimation("idle")
-    --inst.SoundEmitter:PlaySound("dontstarve/bee/beemine_rattle")
-    inst.rattletask = inst:DoTaskInTime(4 + math.random(), MineRattle)
-end]]
-
---[[local function StartRattling(inst)
-    inst.rattletask = inst:DoTaskInTime(1, MineRattle)
-end]]
-
---[[local function StopRattling(inst)
-    if inst.rattletask then
-        inst.rattletask:Cancel()
-        inst.rattletask = nil
-    end
-end]]
-
 local function SetInactive(inst)
-	--inst.AnimState:PlayAnimation("inactive")
-	--StopRattling(inst)
-	inst.AnimState:PlayAnimation("idle") -- inactive can be same as idle
+	inst.AnimState:PlayAnimation("idle") -- make inactive anim to differentiate between dropped and deployed
 end
 
 local function OnDropped(inst)
@@ -66,7 +46,6 @@ end
 local function ondeploy(inst, pt, deployer)
 	inst.components.mine:Reset()
 	inst.Physics:Teleport(pt:Get())
-	--StartRattling(inst)
 end
 
 local function fn()
@@ -79,6 +58,7 @@ local function fn()
 	
 	--local minimap = inst.entity:AddMiniMapEntity()
 	--minimap:SetIcon( "beemine.png" )
+	-- inst.minimap:SetIcon("image.png") -- try this in future
 	
 	anim:SetBank("minemine")
 	anim:SetBuild("minemine")
@@ -91,20 +71,17 @@ local function fn()
 	inst.components.mine:SetRadius(1) -- check, TUNING.BEEMINE_RADIUS
 	inst.components.mine:SetOnDeactivateFn(SetInactive)
 	
-	--inst.components.mine:StartTesting()
-	--inst.beeprefab = spawnprefab -- thing it spawns, used later
+	--inst.beeprefab = spawnprefab -- store which prefab to spawn, "bee" etc.
+
+	inst:AddComponent("explosive")
+    inst.components.explosive.explosivedamage = TUNING.GUNPOWDER_DAMAGE
+	-- Change range?
 	
 	inst:AddComponent("inspectable")
-	--inst:AddComponent("lootdropper")
-	--[[inst:AddComponent("workable")
-	inst.components.workable:SetWorkAction(ACTIONS.HAMMER)
-	inst.components.workable:SetWorkLeft(1)
-	inst.components.workable:SetOnFinishCallback(onhammered)]]
 
-	inst:AddComponent("inventoryitem")
-	-- ?
+	inst:AddComponent("inventoryitem") -- ?
 	inst.components.inventoryitem.nobounce = true
-	--inst.components.inventoryitem:SetOnPutInInventoryFn(StopRattling)
+	--inst.components.inventoryitem:SetOnPutInInventoryFn( )
 	--inst.components.inventoryitem:SetOnDroppedFn(OnDropped)
 	inst.components.inventoryitem.imagename = "minemine"
     inst.components.inventoryitem.atlasname = "images/inventoryimages/minemine.xml"
@@ -115,5 +92,5 @@ local function fn()
 	return inst
 end
 
-return Prefab("common/inventory/minemine", fn, assets, prefabs), 
+return Prefab("common/inventory/minemine", fn, assets, prefabs),
 	MakePlacer("common/minemine_placer", "minemine", "minemine", "idle")

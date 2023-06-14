@@ -27,7 +27,7 @@ local function onhit(inst, attacker, target)
         -- maybe add animation of fragments
     
         -- Triggers instant explosion, causes fire
-        -- Change OnBurnt() in explosive component to avoid fire
+        -- Change OnBurnt() in explosive component to avoid fire / make new component
         inst.components.explosive:OnBurnt()
         -- Removes the grenade
         inst:Remove()
@@ -35,6 +35,7 @@ local function onhit(inst, attacker, target)
 end
 
 local function OnEquip(inst, owner)
+    -- swap_object, 'anim zip', anim name(?)
     owner.AnimState:OverrideSymbol("swap_object", "swap_grenade", "swap_grenade")
     owner.AnimState:Show("ARM_carry")
     owner.AnimState:Hide("ARM_normal")
@@ -61,8 +62,6 @@ local function fn()
     anim:SetBuild("grenade")
     anim:PlayAnimation("idle")
 
-    inst:AddTag("projectile")
-
     inst:AddComponent("equippable")
     inst.components.equippable:SetOnEquip(OnEquip)
     inst.components.equippable:SetOnUnequip(OnUnequip)
@@ -72,9 +71,9 @@ local function fn()
     inst.components.weapon:SetRange(8, 10) -- min range, something else
 
     inst:AddComponent("explosive")
-    --inst.components.explosive.explosivedamage = TUNING.GUNPOWDER_DAMAGE -- 200
-    inst.components.explosive.explosivedamage = 100
+    inst.components.explosive.explosivedamage = TUNING.GUNPOWDER_DAMAGE -- 200
     
+    inst:AddTag("projectile")
     inst:AddComponent("projectile")
     inst.components.projectile:SetSpeed(30)
     inst.components.projectile:SetHoming(false)

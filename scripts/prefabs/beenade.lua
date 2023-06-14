@@ -6,14 +6,12 @@ local assets = {
 }
 
 local prefabs = {
-    --"explode_small",
     "bee"
 }
 
 local function onhit(inst, attacker, target)
     
     inst.AnimState:PlayAnimation("idle")
-    --inst.AnimState:PlayAnimation("explode")
 
     inst:DoTaskInTime(1, function()
 
@@ -39,7 +37,6 @@ local function onhit(inst, attacker, target)
         end
         inst:Remove()
     end)
-    --inst:ListenForEvent("animover", inst.Remove)
 end
 
 local function OnEquip(inst, owner)
@@ -69,8 +66,6 @@ local function fn()
     anim:SetBuild("beenade")
     anim:PlayAnimation("idle")
 
-    inst:AddTag("projectile")
-
     inst:AddComponent("equippable")
     inst.components.equippable:SetOnEquip(OnEquip)
     inst.components.equippable:SetOnUnequip(OnUnequip)
@@ -79,6 +74,7 @@ local function fn()
     inst.components.weapon:SetDamage(0)
     inst.components.weapon:SetRange(8, 10)
     
+    inst:AddTag("projectile")
     inst:AddComponent("projectile")
     inst.components.projectile:SetSpeed(30)
     inst.components.projectile:SetHoming(false)
