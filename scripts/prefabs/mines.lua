@@ -10,42 +10,40 @@ local prefabs = {
 
 local function OnExplode(inst)
 
-    inst.SoundEmitter:PlaySound("dontstarve/bee/beemine_launch")
-
-	inst:DoTaskInTime(1, function()
-
-		-- Explosion effect
-		inst.AnimState:PlayAnimation("explode") -- finish
-		inst.SoundEmitter:PlaySound("dontstarve/bee/beemine_explo")
-
+	inst.SoundEmitter:PlaySound("dontstarve/bee/beemine_launch")
+	inst.AnimState:PlayAnimation("explode") -- plays, but deployed anim is also played
+	
+	inst:DoTaskInTime(0.5, function()
+		
+        inst.SoundEmitter:KillSound("hiss")
+        inst.SoundEmitter:PlaySound("dontstarve/common/blackpowder_explo")
 		inst.components.explosive:OnBurnt()
 
-		-- maybe include this as well
-		--[[ Explosion effect
+		--Explosion effect
 		local explode = SpawnPrefab("explode_small")
 		local pos = inst:GetPosition() 
-		explode.Transform:SetPosition(pos.x, pos.y, pos.z)]]
-
-		--inst:Remove()
+		explode.Transform:SetPosition(pos.x, pos.y, pos.z)
 	end)
 	inst:ListenForEvent("animover", inst.Remove)
 	inst:ListenForEvent("entitysleep", inst.Remove)
 end
 
 local function SetInactive(inst)
-	inst.AnimState:PlayAnimation("idle") -- make inactive anim to differentiate between dropped and deployed
+	
 end
 
 local function OnDropped(inst)
+	inst.AnimState:PlayAnimation("idle")
 	if inst.components.mine then
 		inst.components.mine:Deactivate()
 	end
-	print("Dropped")
 end
 
-local function ondeploy(inst, pt, deployer)
+local function OnDeploy(inst, pt, deployer)
 	inst.components.mine:Reset()
 	inst.Physics:Teleport(pt:Get())
+	inst.AnimState:PlayAnimation("deployed")
+	print("on deploy")
 end
 
 local function fn()
@@ -67,8 +65,8 @@ local function fn()
 	inst:AddTag("mine")
 	inst:AddComponent("mine")
 	inst.components.mine:SetOnExplodeFn(OnExplode)
-	inst.components.mine:SetAlignment("player") -- "nobody"
-	inst.components.mine:SetRadius(1) -- check, TUNING.BEEMINE_RADIUS
+	inst.components.mine:SetAlignment("player") -- or "nobody" to also target player
+	inst.components.mine:SetRadius(TUNING.BEEMINE_RADIUS) -- 3
 	inst.components.mine:SetOnDeactivateFn(SetInactive)
 	
 	--inst.beeprefab = spawnprefab -- store which prefab to spawn, "bee" etc.
@@ -79,16 +77,17 @@ local function fn()
 	
 	inst:AddComponent("inspectable")
 
-	inst:AddComponent("inventoryitem") -- ?
+	inst:AddComponent("inventoryitem")
 	inst.components.inventoryitem.nobounce = true
 	--inst.components.inventoryitem:SetOnPutInInventoryFn( )
-	--inst.components.inventoryitem:SetOnDroppedFn(OnDropped)
+	inst.components.inventoryitem:SetOnDroppedFn(OnDropped)
 	inst.components.inventoryitem.imagename = "minemine"
     inst.components.inventoryitem.atlasname = "images/inventoryimages/minemine.xml"
 	
 	inst:AddComponent("deployable")
-	inst.components.deployable.ondeploy = ondeploy
+	inst.components.deployable.ondeploy = OnDeploy
 	inst.components.deployable.min_spacing = .75
+	
 	return inst
 end
 
