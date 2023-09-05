@@ -9,13 +9,31 @@
         <file id="5" name="fragment3.png" width="17" height="9" pivot_x="0.487509" pivot_y="0.48296"/>
     </folder>
     <entity id="0" name="minemine">
-        <animation id="0" name="idle" length="1000">
+        <animation id="0" name="idle" length="134">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" name="ground_minemine_001" folder="0" file="1" abs_x="0" abs_y="0" abs_pivot_x="0.492157" abs_pivot_y="0.176547" abs_angle="0" abs_scale_x="1.5" abs_scale_y="1.5" abs_a="1" timeline="1" key="0" z_index="0"/>
+                    <object_ref id="1" name="grass" folder="0" file="0" abs_x="0" abs_y="0" abs_pivot_x="0.501016" abs_pivot_y="0.237241" abs_angle="0" abs_scale_x="1" abs_scale_y="1" abs_a="1" timeline="0" key="0" z_index="1"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="grass">
+                <key id="0" spin="0">
+                    <object folder="0" file="0" angle="0"/>
+                </key>
+            </timeline>
+            <timeline id="1" name="ground_minemine_001">
+                <key id="0" spin="0">
+                    <object folder="0" file="1" angle="0" scale_x="1.5" scale_y="1.5"/>
+                </key>
+            </timeline>
+        </animation>
+        <animation id="1" name="inactive" length="134">
             <mainline>
                 <key id="0">
                     <object_ref id="0" name="minemine_001" folder="0" file="2" abs_x="0" abs_y="60" abs_pivot_x="0.506193" abs_pivot_y="0.477996" abs_angle="0" abs_scale_x="1.5" abs_scale_y="1.5" abs_a="1" timeline="1" key="0" z_index="0"/>
                     <object_ref id="1" name="grass" folder="0" file="0" abs_x="0" abs_y="0" abs_pivot_x="0.501016" abs_pivot_y="0.237241" abs_angle="0" abs_scale_x="1" abs_scale_y="1" abs_a="1" timeline="0" key="0" z_index="1"/>
                 </key>
-                <key id="1" time="1000">
+                <key id="1" time="134">
                     <object_ref id="0" timeline="1" key="1" z_index="0"/>
                     <object_ref id="1" timeline="0" key="1" z_index="1"/>
                 </key>
@@ -24,7 +42,7 @@
                 <key id="0" spin="0">
                     <object folder="0" file="0" angle="0"/>
                 </key>
-                <key id="1" time="1000" spin="0">
+                <key id="1" time="134" spin="0">
                     <object folder="0" file="0" angle="0"/>
                 </key>
             </timeline>
@@ -32,21 +50,28 @@
                 <key id="0" spin="0">
                     <object folder="0" file="2" y="60" angle="0" scale_x="1.5" scale_y="1.5"/>
                 </key>
-                <key id="1" time="1000" spin="0">
+                <key id="1" time="134" spin="0">
                     <object folder="0" file="2" y="60" angle="0" scale_x="1.5" scale_y="1.5"/>
                 </key>
             </timeline>
         </animation>
-        <animation id="1" name="deployed" length="1000">
+        <animation id="2" name="hit" length="367">
             <mainline>
                 <key id="0">
                     <object_ref id="0" name="ground_minemine_000" folder="0" file="1" abs_x="0" abs_y="0" abs_pivot_x="0.492157" abs_pivot_y="0.176547" abs_angle="0" abs_scale_x="1.5" abs_scale_y="1.5" abs_a="1" timeline="0" key="0" z_index="0"/>
                     <object_ref id="1" name="grass_001" folder="0" file="0" abs_x="0" abs_y="0" abs_pivot_x="0.501016" abs_pivot_y="0.237241" abs_angle="0" abs_scale_x="1" abs_scale_y="1" abs_a="1" timeline="1" key="0" z_index="1"/>
                 </key>
+                <key id="1" time="183">
+                    <object_ref id="0" timeline="0" key="1" z_index="0"/>
+                    <object_ref id="1" timeline="1" key="0" z_index="1"/>
+                </key>
             </mainline>
             <timeline id="0" name="ground_minemine_000">
                 <key id="0" spin="0">
                     <object folder="0" file="1" angle="0" scale_x="1.5" scale_y="1.5"/>
+                </key>
+                <key id="1" time="183" spin="0">
+                    <object folder="0" file="1" y="10" angle="0" scale_x="2" scale_y="4"/>
                 </key>
             </timeline>
             <timeline id="1" name="grass_001">
@@ -55,33 +80,84 @@
                 </key>
             </timeline>
         </animation>
-        <animation id="2" name="explode" length="1000">
+        <animation id="3" name="reset" length="467">
+            <mainline>
+                <key id="0">
+                    <object_ref id="0" name="minemine_000" folder="0" file="2" abs_x="0" abs_y="60" abs_pivot_x="0.506193" abs_pivot_y="0.477996" abs_angle="360" abs_scale_x="1.5" abs_scale_y="1.5" abs_a="1" timeline="1" key="0" z_index="0"/>
+                    <object_ref id="1" name="grass_001" folder="0" file="0" abs_x="0" abs_y="0" abs_pivot_x="0.501016" abs_pivot_y="0.237241" abs_angle="0" abs_scale_x="1" abs_scale_y="1" abs_a="1" timeline="0" key="0" z_index="1"/>
+                </key>
+                <key id="1" time="210">
+                    <object_ref id="0" timeline="1" key="1" z_index="0"/>
+                    <object_ref id="1" timeline="0" key="0" z_index="1"/>
+                </key>
+                <key id="2" time="233">
+                    <object_ref id="0" timeline="2" key="0" z_index="0"/>
+                    <object_ref id="1" timeline="0" key="0" z_index="1"/>
+                </key>
+                <key id="3" time="280">
+                    <object_ref id="0" timeline="2" key="1" z_index="0"/>
+                    <object_ref id="1" timeline="0" key="0" z_index="1"/>
+                </key>
+                <key id="4" time="467">
+                    <object_ref id="0" timeline="2" key="2" z_index="0"/>
+                    <object_ref id="1" timeline="0" key="0" z_index="1"/>
+                </key>
+            </mainline>
+            <timeline id="0" name="grass_001">
+                <key id="0" spin="0">
+                    <object folder="0" file="0" angle="0"/>
+                </key>
+            </timeline>
+            <timeline id="1" name="minemine_000">
+                <key id="0" spin="0">
+                    <object folder="0" file="2" y="60" scale_x="1.5" scale_y="1.5"/>
+                </key>
+                <key id="1" time="210" spin="0">
+                    <object folder="0" file="2" y="25" scale_x="1.5" scale_y="0.7"/>
+                </key>
+                <key id="2" time="233" spin="0">
+                    <object folder="0" file="2" y="25" scale_x="1.5" scale_y="0.7"/>
+                </key>
+            </timeline>
+            <timeline id="2" name="ground_minemine_002">
+                <key id="0" time="233" spin="0">
+                    <object folder="0" file="1" x="0" scale_x="1.5" scale_y="1"/>
+                </key>
+                <key id="1" time="280" spin="0">
+                    <object folder="0" file="1" x="0" scale_x="1.5" scale_y="1.5"/>
+                </key>
+                <key id="2" time="467" spin="0">
+                    <object folder="0" file="1" x="0" scale_x="1.5" scale_y="1.5"/>
+                </key>
+            </timeline>
+        </animation>
+        <animation id="4" name="explode" length="1534">
             <mainline>
                 <key id="0">
                     <object_ref id="0" name="ground_minemine" folder="0" file="1" abs_x="0" abs_y="0" abs_pivot_x="0.492157" abs_pivot_y="0.176547" abs_angle="0" abs_scale_x="1.5" abs_scale_y="1.5" abs_a="1" timeline="1" key="0" z_index="0"/>
                     <object_ref id="1" name="grass" folder="0" file="0" abs_x="0" abs_y="0" abs_pivot_x="0.501016" abs_pivot_y="0.237241" abs_angle="0" abs_scale_x="1" abs_scale_y="1" abs_a="1" timeline="0" key="0" z_index="1"/>
                 </key>
-                <key id="1" time="132">
+                <key id="1" time="158">
                     <object_ref id="0" timeline="1" key="1" z_index="0"/>
                     <object_ref id="1" timeline="0" key="0" z_index="1"/>
                 </key>
-                <key id="2" time="266">
+                <key id="2" time="329">
                     <object_ref id="0" timeline="1" key="2" z_index="0"/>
                     <object_ref id="1" timeline="0" key="1" z_index="1"/>
                 </key>
-                <key id="3" time="272">
+                <key id="3" time="338">
                     <object_ref id="0" timeline="0" key="2" z_index="0"/>
                     <object_ref id="1" timeline="2" key="0" z_index="1"/>
                 </key>
-                <key id="4" time="400">
+                <key id="4" time="474">
                     <object_ref id="0" timeline="0" key="3" z_index="0"/>
                     <object_ref id="1" timeline="2" key="1" z_index="1"/>
                 </key>
-                <key id="5" time="532">
+                <key id="5" time="768">
                     <object_ref id="0" timeline="0" key="4" z_index="0"/>
                     <object_ref id="1" timeline="2" key="2" z_index="1"/>
                 </key>
-                <key id="6" time="546">
+                <key id="6" time="781">
                     <object_ref id="0" timeline="3" key="0" z_index="0"/>
                     <object_ref id="1" timeline="4" key="0" z_index="1"/>
                     <object_ref id="2" timeline="5" key="0" z_index="2"/>
@@ -89,7 +165,7 @@
                     <object_ref id="4" timeline="7" key="0" z_index="4"/>
                     <object_ref id="5" timeline="8" key="0" z_index="5"/>
                 </key>
-                <key id="7" time="666">
+                <key id="7" time="1183">
                     <object_ref id="0" timeline="3" key="1" z_index="0"/>
                     <object_ref id="1" timeline="4" key="1" z_index="1"/>
                     <object_ref id="2" timeline="5" key="1" z_index="2"/>
@@ -97,35 +173,26 @@
                     <object_ref id="4" timeline="7" key="1" z_index="4"/>
                     <object_ref id="5" timeline="8" key="1" z_index="5"/>
                 </key>
-                <key id="8" time="680">
-                    <object_ref id="0" timeline="4" key="2" z_index="0"/>
-                    <object_ref id="1" timeline="5" key="2" z_index="1"/>
-                    <object_ref id="2" timeline="6" key="2" z_index="2"/>
-                    <object_ref id="3" timeline="7" key="2" z_index="3"/>
-                </key>
-                <key id="9" time="692">
-                    <object_ref id="0" timeline="5" key="3" z_index="0"/>
-                    <object_ref id="1" timeline="6" key="3" z_index="1"/>
-                </key>
-                <key id="10" time="706"/>
+                <key id="8" time="1204"/>
+                <key id="9" time="1534"/>
             </mainline>
             <timeline id="0" name="grass">
                 <key id="0" spin="0">
                     <object folder="0" file="0" angle="0"/>
                 </key>
-                <key id="1" time="266" spin="0">
+                <key id="1" time="329" spin="0">
                     <object folder="0" file="0" angle="0"/>
                 </key>
-                <key id="2" time="272" spin="0">
+                <key id="2" time="338" spin="0">
                     <object folder="0" file="0" angle="0"/>
                 </key>
-                <key id="3" time="400" spin="0">
+                <key id="3" time="474" spin="0">
                     <object folder="0" file="0" angle="0"/>
                 </key>
-                <key id="4" time="532" spin="0">
+                <key id="4" time="768" spin="0">
                     <object folder="0" file="0" angle="0" scale_x="0.7" scale_y="0.7"/>
                 </key>
-                <key id="5" time="546" spin="0">
+                <key id="5" time="781" spin="0">
                     <object folder="0" file="0" angle="0" scale_x="0.7" scale_y="0.7"/>
                 </key>
             </timeline>
@@ -133,112 +200,94 @@
                 <key id="0" spin="0">
                     <object folder="0" file="1" angle="0" scale_x="1.5" scale_y="1.5"/>
                 </key>
-                <key id="1" time="132" spin="0">
+                <key id="1" time="158" spin="0">
                     <object folder="0" file="1" angle="0" scale_x="1.6" scale_y="0.9"/>
                 </key>
-                <key id="2" time="266" spin="0">
+                <key id="2" time="329" spin="0">
                     <object folder="0" file="1" angle="0" scale_x="1.1" scale_y="1.5"/>
                 </key>
-                <key id="3" time="272" spin="0">
+                <key id="3" time="338" spin="0">
                     <object folder="0" file="1" angle="0" scale_x="1.1" scale_y="1.5"/>
                 </key>
             </timeline>
             <timeline id="2" name="minemine">
-                <key id="0" time="272" spin="0">
+                <key id="0" time="338" spin="0">
                     <object folder="0" file="2" y="60" angle="0" scale_x="1.072717" scale_y="1.1414"/>
                 </key>
-                <key id="1" time="400" spin="0">
+                <key id="1" time="474" spin="0">
                     <object folder="0" file="2" y="100" angle="0" scale_y="1.25"/>
                 </key>
-                <key id="2" time="532" spin="0">
+                <key id="2" time="768" spin="0">
                     <object folder="0" file="2" y="150" angle="0" scale_x="1.5" scale_y="1.5"/>
                 </key>
-                <key id="3" time="546" spin="0">
+                <key id="3" time="781" spin="0">
                     <object folder="0" file="2" y="150" angle="0" scale_x="1.5" scale_y="1.5"/>
                 </key>
             </timeline>
             <timeline id="3" name="fragment1">
-                <key id="0" time="546">
-                    <object folder="0" file="3" x="11.9105" y="158.834926" angle="25.14484" scale_x="2.5" scale_y="2.5"/>
+                <key id="0" time="781" spin="-1">
+                    <object folder="0" file="3" x="11.9105" y="158.834926" angle="25.14484" scale_x="4" scale_y="4"/>
                 </key>
-                <key id="1" time="666" spin="-1">
-                    <object folder="0" file="3" x="101.188025" y="221.891999" angle="48.933267" scale_x="2.5" scale_y="2.5"/>
+                <key id="1" time="1183">
+                    <object folder="0" file="3" x="108.9105" y="212.834926" angle="345.564018" scale_x="2.5" scale_y="2.5"/>
                 </key>
-                <key id="2" time="680" spin="-1">
-                    <object folder="0" file="3" x="101.188025" y="221.891999" angle="48.933267" scale_x="2.5" scale_y="2.5"/>
+                <key id="2" time="1204">
+                    <object folder="0" file="3" x="108.9105" y="212.834926" angle="345.564018" scale_x="2.5" scale_y="2.5"/>
                 </key>
             </timeline>
             <timeline id="4" name="fragment2">
-                <key id="0" time="546">
-                    <object folder="0" file="3" x="21.661907" y="144.954349" angle="267.626162" scale_x="2.5" scale_y="2.5"/>
+                <key id="0" time="781">
+                    <object folder="0" file="3" x="21.661907" y="144.954349" angle="267.626162" scale_x="4" scale_y="4"/>
                 </key>
-                <key id="1" time="666" spin="-1">
-                    <object folder="0" file="3" x="82.907582" y="139.418017" angle="306.966672" scale_x="2.5" scale_y="2.5"/>
+                <key id="1" time="1183" spin="-1">
+                    <object folder="0" file="3" x="161.661907" y="147.954349" angle="344.721976" scale_x="2.5" scale_y="2.5"/>
                 </key>
-                <key id="2" time="680" spin="-1">
-                    <object folder="0" file="3" x="153.129304" y="143.110451" angle="306.41258" scale_x="2.5" scale_y="2.5"/>
-                </key>
-                <key id="3" time="692" spin="-1">
-                    <object folder="0" file="3" x="153.129304" y="143.110451" angle="306.41258" scale_x="2.5" scale_y="2.5"/>
+                <key id="2" time="1204" spin="-1">
+                    <object folder="0" file="3" x="161.661907" y="147.954349" angle="344.721976" scale_x="2.5" scale_y="2.5"/>
                 </key>
             </timeline>
             <timeline id="5" name="fragment3">
-                <key id="0" time="546" spin="-1">
-                    <object folder="0" file="5" x="12.775223" y="121.26859" angle="241.991959" scale_x="2.5" scale_y="2.5"/>
+                <key id="0" time="781" spin="-1">
+                    <object folder="0" file="5" x="12.775223" y="121.26859" angle="241.991959" scale_x="4" scale_y="4"/>
                 </key>
-                <key id="1" time="666">
-                    <object folder="0" file="5" x="62.602213" y="96.701116" angle="219.966041" scale_x="2.5" scale_y="2.5"/>
+                <key id="1" time="1183">
+                    <object folder="0" file="5" x="97.775223" y="68.26859" angle="193.089216" scale_x="2.5" scale_y="2.5"/>
                 </key>
-                <key id="2" time="680">
-                    <object folder="0" file="5" x="61.900425" y="97.047136" angle="220.276265" scale_x="2.5" scale_y="2.5"/>
-                </key>
-                <key id="3" time="692">
-                    <object folder="0" file="5" x="100.957672" y="51.007615" angle="220.586489" scale_x="2.5" scale_y="2.5"/>
-                </key>
-                <key id="4" time="706">
-                    <object folder="0" file="5" x="100.957672" y="51.007615" angle="220.586489" scale_x="2.5" scale_y="2.5"/>
+                <key id="2" time="1204">
+                    <object folder="0" file="5" x="97.775223" y="68.26859" angle="193.089216" scale_x="2.5" scale_y="2.5"/>
                 </key>
             </timeline>
             <timeline id="6" name="fragment3_000">
-                <key id="0" time="546" spin="-1">
-                    <object folder="0" file="5" x="-17.398374" y="160.763521" angle="57.537328" scale_x="2.5" scale_y="2.5"/>
+                <key id="0" time="781" spin="-1">
+                    <object folder="0" file="5" x="-17.398374" y="160.763521" angle="57.537328" scale_x="4" scale_y="4"/>
                 </key>
-                <key id="1" time="666">
-                    <object folder="0" file="5" x="-46.118097" y="195.365597" angle="27.457834" scale_x="2.5" scale_y="2.5"/>
+                <key id="1" time="1183">
+                    <object folder="0" file="5" x="-97.398374" y="222.763521" angle="17.918673" scale_x="2.5" scale_y="2.5"/>
                 </key>
-                <key id="2" time="680">
-                    <object folder="0" file="5" x="-45.713594" y="194.878244" angle="27.881489" scale_x="2.5" scale_y="2.5"/>
-                </key>
-                <key id="3" time="692">
-                    <object folder="0" file="5" x="-82.056079" y="246.800529" angle="28.305144" scale_x="2.5" scale_y="2.5"/>
-                </key>
-                <key id="4" time="706">
-                    <object folder="0" file="5" x="-82.056079" y="246.800529" angle="28.305144" scale_x="2.5" scale_y="2.5"/>
+                <key id="2" time="1204">
+                    <object folder="0" file="5" x="-97.398374" y="222.763521" angle="17.918673" scale_x="2.5" scale_y="2.5"/>
                 </key>
             </timeline>
             <timeline id="7" name="fragment2_000">
-                <key id="0" time="546">
-                    <object folder="0" file="4" x="-17.391304" y="137.101449" angle="79.786027" scale_x="2.5" scale_y="2.5"/>
+                <key id="0" time="781">
+                    <object folder="0" file="4" x="-17.391304" y="137.101449" angle="79.786027" scale_x="4" scale_y="4"/>
                 </key>
-                <key id="1" time="666" spin="-1">
-                    <object folder="0" file="4" x="-81.059124" y="139.177574" angle="115.805126" scale_x="2.5" scale_y="2.5"/>
+                <key id="1" time="1183" spin="-1">
+                    <object folder="0" file="4" x="-159.391304" y="133.101449" angle="110.452024" scale_x="2.5" scale_y="2.5"/>
                 </key>
-                <key id="2" time="680" spin="-1">
-                    <object folder="0" file="4" x="-145.222636" y="140.955562" angle="115.297815" scale_x="2.5" scale_y="2.5"/>
-                </key>
-                <key id="3" time="692" spin="-1">
-                    <object folder="0" file="4" x="-145.222636" y="140.955562" angle="115.297815" scale_x="2.5" scale_y="2.5"/>
+                <key id="2" time="1204" spin="-1">
+                    <object folder="0" file="4" x="-159.391304" y="133.101449" angle="110.452024" scale_x="2.5" scale_y="2.5"/>
                 </key>
             </timeline>
             <timeline id="8" name="fragment1_000">
-                <key id="0" time="546" spin="-1">
-                    <object folder="0" file="3" x="-8.695652" y="124.637681" angle="201.9117" scale_x="2.5" scale_y="2.5"/>
+                <key id="0" time="781">
+                    <object folder="0" file="3" x="-8.695652" y="124.637681" angle="201.9117" scale_x="4" scale_y="4"/>
                 </key>
-                <key id="1" time="666">
-                    <object folder="0" file="3" x="-73.07219" y="63.773463" angle="174.750881" scale_x="2.5" scale_y="2.5"/>
+                <key id="1" time="1183" spin="-1">
+                    <object folder="0" file="3" x="-105.695652" y="64.637681" angle="222.061056" scale_x="2.5" scale_y="2.5"/>
                 </key>
-                <key id="2" time="680">
-                    <object folder="0" file="3" x="-73.07219" y="63.773463" angle="174.750881" scale_x="2.5" scale_y="2.5"/>
+                <key id="2" time="1204" spin="-1">
+                    <object folder="0" file="3" x="-105.695652" y="64.637681" angle="222.061056" scale_x="2.5" scale_y="2.5"/>
                 </key>
             </timeline>
         </animation>
