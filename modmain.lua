@@ -1,8 +1,7 @@
 PrefabFiles = {
-    "grenade",
-    "beenade",
+    "grenades",
     "mines"
-} -- The '.lua' files for prefabs, not each prefab name
+} -- File names in prefab folder
 
 Assets = {
 	Asset("ATLAS", "images/inventoryimages/grenade.xml"),
