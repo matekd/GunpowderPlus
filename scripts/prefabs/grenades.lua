@@ -1,6 +1,7 @@
 local assets = {
     Asset("ANIM", "anim/grenades.zip"),
-    Asset("ANIM", "anim/swap_grenades.zip"),
+    Asset("ANIM", "anim/swap_grenade.zip"),
+    Asset("ANIM", "anim/swap_beenade.zip"),
     Asset("ATLAS", "images/inventoryimages/grenade.xml"),
     Asset("IMAGE", "images/inventoryimages/grenade.tex"),
     Asset("ATLAS", "images/inventoryimages/beenade.xml"),
@@ -65,8 +66,8 @@ end
 
 local function commonfn(type) 
 
-    local function OnEquip(inst, owner)
-        owner.AnimState:OverrideSymbol("swap_object", "swap_grenades", "swap_"..type) -- swap_beenade etc.
+    local function OnEquip(inst, owner) -- swap_object, anim build, anim name (?)
+        owner.AnimState:OverrideSymbol("swap_object", "swap_"..type, "swap_"..type) -- swap_beenade etc.
         owner.AnimState:Show("ARM_carry")
         owner.AnimState:Hide("ARM_normal")
     end
@@ -90,6 +91,8 @@ local function commonfn(type)
     anim:SetBuild("grenades")
     anim:PlayAnimation(type)
 
+    inst:AddComponent("inventoryitem")
+
     inst:AddComponent("equippable")
     inst.components.equippable:SetOnEquip(OnEquip)
     inst.components.equippable:SetOnUnequip(OnUnequip)
@@ -108,8 +111,6 @@ local function commonfn(type)
 
     inst:AddComponent("stackable")
     inst.components.stackable.maxsize = TUNING.STACK_SIZE_SMALLITEM
-
-    inst:AddComponent("inventoryitem")
 
     return inst
 end

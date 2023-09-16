@@ -87,7 +87,7 @@ local function fn()
 	inst.components.inventoryitem.nobounce = true
 	inst.components.inventoryitem:SetOnDroppedFn(OnDropped)
 	inst.components.inventoryitem.imagename = "minemine"
-    inst.components.inventoryitem.atlasname = "images/inventoryimages/minemine.xml"
+	inst.components.inventoryitem.atlasname = "images/inventoryimages/minemine.xml"
 
 	inst:AddComponent("deployable")
 	inst.components.deployable.ondeploy = OnDeploy
